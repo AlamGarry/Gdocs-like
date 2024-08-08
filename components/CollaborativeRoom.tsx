@@ -13,9 +13,9 @@ import Loader from './Loader';
 const CollaborativeRoom = ({
   roomId,
   roomMetadata,
+  users,
+  currentUserType,
 }: CollaborativeRoomProps) => {
-  const currentUserType = 'editor';
-
   const [documentTitle, setDocumentTitle] = useState(roomMetadata.title);
   const [editing, setediting] = useState(false);
   const [loading, setloading] = useState(false);
@@ -116,7 +116,7 @@ const CollaborativeRoom = ({
               </SignedIn>
             </div>
           </Header>
-          <Editor />
+          <Editor roomId={roomId} currentUserType={currentUserType} />
         </div>
       </ClientSideSuspense>
     </RoomProvider>
